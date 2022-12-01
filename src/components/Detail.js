@@ -13,7 +13,7 @@ function Detail() {
     });
   }, [id]);
 
-  console.log(" ", pokemon);
+  // console.log(" ", pokemon);
 
   if (!pokemon) return <h2>Loading...</h2>;
 
@@ -23,7 +23,11 @@ function Detail() {
     <>
       <div key={id}>
         <h1>{name.english}</h1>
-        {type}
+        {type.map((item, index) => (
+          <div key={index}>
+            <p>{item}</p>
+          </div>
+        ))}
         <div>
           <p>{base.Attack}</p>
           <p>{base.Defense}</p>
