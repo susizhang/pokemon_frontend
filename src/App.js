@@ -2,8 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Detail from "./components/Detail";
-import SuperDetail from "./components/SuperDetail";
-
+import SuperDetail from "./components/Detail";
 
 function App() {
   return (
