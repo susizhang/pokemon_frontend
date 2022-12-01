@@ -9,7 +9,7 @@ function SuperDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5020/pokemon/${id}/${info}`)
+      .get(`https://pokemon-cp2y.onrender.com/pokemon/${id}/${info}`)
       .then(({ data }) => {
         // console.log(" ", data);
         setInfoDetail(data);

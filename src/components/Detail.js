@@ -8,10 +8,12 @@ function Detail() {
   const [pokemon, setPokemon] = useState();
 
   useEffect(() => {
-    axios.get(`http://localhost:5020/pokemon/${id}`).then(({ data }) => {
-      // console.log(" ", data);
-      setPokemon(data);
-    });
+    axios
+      .get(`https://pokemon-cp2y.onrender.com/pokemon/${id}`)
+      .then(({ data }) => {
+        // console.log(" ", data);
+        setPokemon(data);
+      });
   }, [id]);
 
   // console.log(" ", pokemon);

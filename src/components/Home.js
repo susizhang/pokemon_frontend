@@ -5,7 +5,7 @@ function Home() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5020/pokemon").then(({ data }) => {
+    axios.get("https://pokemon-cp2y.onrender.com/pokemon").then(({ data }) => {
       // console.log(" ", data);
       setPokemons(data);
     });
