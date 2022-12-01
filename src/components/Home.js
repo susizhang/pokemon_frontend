@@ -13,14 +13,13 @@ function Home() {
   // console.log(" ", pokemonName);
   if (!pokemons) return <h2>Loading...</h2>;
 
-  console.log(" ", pokemons);
   return (
     <>
       {pokemons.map((pokemon) => {
         return (
           <ul>
             <li>
-              <a href="#">{pokemon.name.english}</a>
+              <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
             </li>
           </ul>
         );

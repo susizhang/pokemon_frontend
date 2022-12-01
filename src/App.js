@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Detail from "./components/Detail";
 import SuperDetail from "./components/SuperDetail";
 
+
 function App() {
   return (
     <div className="App">
