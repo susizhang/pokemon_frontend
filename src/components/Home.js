@@ -3,8 +3,7 @@ import { useEffect, useState, useRef } from "react";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
-  // const pokemonUrl = useRef([]);
-  const [pokemonUrl, setPokemonUrl] = useState();
+
   useEffect(() => {
     axios.get("http://localhost:5020/pokemon").then(({ data }) => {
       // console.log(" ", data);
