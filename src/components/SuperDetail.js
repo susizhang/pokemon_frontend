@@ -14,8 +14,10 @@ function SuperDetail() {
       });
   }, [id, info]);
 
-  // console.log(" ", infoDetail);
   if (!infoDetail) return <h2>Loading...</h2>;
+
+  console.log(" ", infoDetail);
+
   return <></>;
 }
 

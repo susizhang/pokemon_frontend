@@ -22,6 +22,10 @@ function Detail() {
   return (
     <>
       <div key={id}>
+        <img
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+          alt={pokemon.name.english}
+        />
         <h1>{name.english}</h1>
         {type.map((item, index) => (
           <div key={index}>

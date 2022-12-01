@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
-  const [pokemonFoto, setPokemonFoto] = useState();
+  // const pokemonUrl = useRef([]);
+  const [pokemonUrl, setPokemonUrl] = useState();
   useEffect(() => {
     axios.get("http://localhost:5020/pokemon").then(({ data }) => {
       // console.log(" ", data);
@@ -16,13 +17,20 @@ function Home() {
 
   return (
     <>
-      {pokemons.map((pokemon, index) => {
+      {pokemons.map((pokemon) => {
         return (
-          <div key={index}>
+          <div key={pokemon.id}>
             <ul>
-              <li>
-                <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
-              </li>
+              <div>
+                <li>
+                  <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+                    width="25%"
+                    alt={pokemon.name.english}
+                  />
+                  <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
+                </li>
+              </div>
             </ul>
           </div>
         );
