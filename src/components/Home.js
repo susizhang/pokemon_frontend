@@ -15,13 +15,15 @@ function Home() {
 
   return (
     <>
-      {pokemons.map((pokemon) => {
+      {pokemons.map((pokemon, index) => {
         return (
-          <ul>
-            <li>
-              <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
-            </li>
-          </ul>
+          <div key={index}>
+            <ul>
+              <li>
+                <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
+              </li>
+            </ul>
+          </div>
         );
       })}
     </>
