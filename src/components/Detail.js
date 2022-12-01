@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import _ from "lodash";
 
 function Detail() {
   const { id } = useParams();
@@ -19,6 +20,8 @@ function Detail() {
 
   const { name, type, base } = pokemon;
 
+  const baseToArr = _.toPairs(base);
+
   return (
     <>
       <div key={id}>
@@ -33,12 +36,9 @@ function Detail() {
           </div>
         ))}
         <div>
-          <p>{base.Attack}</p>
-          <p>{base.Defense}</p>
-          <p>{base.HP}</p>
-          <p>{base["Sp. Attack"]}</p>
-          <p>{base["Sp. Defense"]}</p>
-          <p>{base.Speed}</p>
+          {baseToArr.map((item, index) => (
+            <p key={index}>{item.join(" : ")}</p>
+          ))}
         </div>
       </div>
     </>

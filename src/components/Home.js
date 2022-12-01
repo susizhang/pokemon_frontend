@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
