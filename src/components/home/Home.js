@@ -2,13 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AllPokemon from "./AllPokemon";
 import Nav from "./Nav";
-// import { baseUrl } from "../config";
+import { baseUrl } from "../../config";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://witty-tam-cow.cyclic.app/pokemon`).then(({ data }) => {
+    axios.get(`${baseUrl}/pokemon`).then(({ data }) => {
       // console.log(" ", data);
       setPokemons(data);
     });
