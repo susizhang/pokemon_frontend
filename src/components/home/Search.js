@@ -4,9 +4,7 @@ function Search({ pokemons }) {
       <h1>Pokéfight</h1>
       <div>
         <h2>Name or Number</h2>
-        <p>
-          Search for a Pokémon by name or using its National Pokédex number{" "}
-        </p>
+        <p>Search for a Pokémon by name or using its National Pokédex number</p>
         <form action="">
           <input type="text" />
           <button>Search</button>
