@@ -11,7 +11,7 @@ function Search({ pokemons }) {
         </form>
       </div>
       <div>
-        <button>Surprise Me!</button>
+        <button>Pick a Pokemon for me !</button>
       </div>
     </>
   );

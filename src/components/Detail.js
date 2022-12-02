@@ -2,20 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import _ from "lodash";
-// import { baseUrl } from "../config";
+import { baseUrl } from "../config";
 
 function Detail() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState();
 
   useEffect(() => {
-    // axios.get(`${baseUrl}/pokemon/${id}`).then(({ data }) => {
-    axios
-      .get(`https://witty-tam-cow.cyclic.app/pokemon/${id}`)
-      .then(({ data }) => {
-        // console.log(" ", data);
-        setPokemon(data);
-      });
+    axios.get(`${baseUrl}/pokemon/${id}`).then(({ data }) => {
+      // console.log(" ", data);
+      setPokemon(data);
+    });
   }, [id]);
 
   // console.log(" ", pokemon);

@@ -2,19 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import _ from "lodash";
-// import { baseUrl } from "../config";
+import { baseUrl } from "../config";
 
 function SuperDetail() {
   const { id, info } = useParams();
   const [infoDetail, setInfoDetail] = useState();
 
   useEffect(() => {
-    axios
-      .get(`https://witty-tam-cow.cyclic.app/pokemon/${id}/${info}`)
-      .then(({ data }) => {
-        // console.log(" ", data);
-        setInfoDetail(data);
-      });
+    axios.get(`${baseUrl}/pokemon/${id}/${info}`).then(({ data }) => {
+      // console.log(" ", data);
+      setInfoDetail(data);
+    });
   }, [id, info]);
 
   if (!infoDetail) return <h2>Loading...</h2>;
