@@ -1,22 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-// import { baseUrl } from "../config";
-
-function Home() {
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    axios.get(`https://witty-tam-cow.cyclic.app/pokemon`).then(({ data }) => {
-      // console.log(" ", data);
-      setPokemons(data);
-    });
-  }, []);
-
-  // console.log(" ", pokemonName);
-  if (!pokemons) return <h2>Loading...</h2>;
-
+function AllPokemon({ pokemons }) {
   return (
-    <>
+    <div>
       {pokemons.map((pokemon) => {
         return (
           <div key={pokemon.id}>
@@ -35,8 +19,8 @@ function Home() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
-export default Home;
+export default AllPokemon;
