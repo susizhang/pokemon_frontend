@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { baseUrl } from "../config";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    axios.get("https://pokemon-cp2y.onrender.com/pokemon").then(({ data }) => {
+    axios.get(`${baseUrl}/pokemon`).then(({ data }) => {
       // console.log(" ", data);
       setPokemons(data);
     });
