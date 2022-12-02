@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { baseUrl } from "../config";
+// import { baseUrl } from "../config";
 
 function Home() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    axios.get(`${baseUrl}/pokemon`).then(({ data }) => {
+    axios.get(`https://witty-tam-cow.cyclic.app/pokemon`).then(({ data }) => {
       // console.log(" ", data);
       setPokemons(data);
     });
