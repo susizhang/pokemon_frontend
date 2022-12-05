@@ -20,12 +20,12 @@ function SuperDetail() {
   //这里的形参不可以写上info,以为我们要用上面的info变量
   const detailInfo = () => {
     if (info === "name") {
-      return <h1>{infoDetail}</h1>;
+      return <h1 className="dark:text-white">{infoDetail}</h1>;
     } else if (info === "type") {
       //需要return
       return infoDetail.map((item, index) => (
         <div key={index}>
-          <p>{item}</p>
+          <p className="dark:text-slate-400">{item}</p>
         </div>
       ));
     } else if (info === "base") {
@@ -34,7 +34,9 @@ function SuperDetail() {
       return (
         <div>
           {baseArr.map((item, index) => (
-            <p key={index}>{item.join(" : ")}</p>
+            <p className="dark:text-slate-400" key={index}>
+              {item.join(" : ")}
+            </p>
           ))}
         </div>
       );

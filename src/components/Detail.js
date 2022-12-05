@@ -30,15 +30,17 @@ function Detail() {
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
           alt={pokemon.name.english}
         />
-        <h1>{name.english}</h1>
+        <h1 className="dark:text-white">{name.english}</h1>
         {type.map((item, index) => (
           <div key={index}>
-            <p>{item}</p>
+            <p className="dark:text-slate-400">{item}</p>
           </div>
         ))}
         <div>
           {baseToArr.map((item, index) => (
-            <p key={index}>{item.join(" : ")}</p>
+            <p className="dark:text-slate-400" key={index}>
+              {item.join(" : ")}
+            </p>
           ))}
         </div>
       </div>

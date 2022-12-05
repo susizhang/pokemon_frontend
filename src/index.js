@@ -11,11 +11,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider>
       <BrowserRouter>
-        <body className="bg-white dark:bg-slate-800 transition-all,">
-          <main>
-            <App />
-          </main>
-        </body>
+        <App />
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
