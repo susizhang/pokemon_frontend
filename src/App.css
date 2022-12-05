@@ -1,0 +1,9 @@
+.nav-container {
+  padding: 30px 20px;
+  margin-bottom: 20px;
+}
+
+.bg-image-light {
+  background-image: url("./img/bg2.png");
+  background-repeat: no-repeat;
+}
