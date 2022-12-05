@@ -12,7 +12,9 @@ function AllPokemon({ pokemons }) {
                     width="25%"
                     alt={pokemon.name.english}
                   />
-                  <a href={`/${pokemon.id}`}>{pokemon.name.english}</a>
+                  <a className="dark:text-white" href={`/${pokemon.id}`}>
+                    {pokemon.name.english}
+                  </a>
                 </li>
               </div>
             </ul>
