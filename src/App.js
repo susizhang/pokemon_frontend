@@ -6,7 +6,7 @@ import SuperDetail from "./components/SuperDetail";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-white dark:bg-slate-800 transition-all">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<Detail />} />
