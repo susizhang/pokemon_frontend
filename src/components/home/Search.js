@@ -9,11 +9,15 @@ function Search({ pokemons }) {
         </p>
         <form action="">
           <input type="text" />
-          <button className="dark:text-white">Search</button>
+          <button className="text-white bg-orange-500 hover:bg-orange-700 text-xl">
+            Search
+          </button>
         </form>
       </div>
       <div>
-        <button className="dark:text-white">Pick a Pokemon for me !</button>
+        <button className="text-white bg-indigo-500 hover:bg-indigo-700 text-xl">
+          Pick a Pokemon for me !
+        </button>
       </div>
     </>
   );

@@ -15,7 +15,7 @@ function Home() {
   }, []);
 
   // console.log(" ", pokemonName);
-  if (!pokemons) return <h2>Loading...</h2>;
+  if (!pokemons) return <h2 className="dark:bg-slate-800">Loading...</h2>;
 
   return (
     <>

@@ -3,14 +3,14 @@ import Search from "./Search";
 
 function Nav({ pokemons }) {
   return (
-    <>
+    <div>
       <div>
         <Search pokemons={pokemons} />
       </div>
       <div>
         <Toggle />
       </div>
-    </>
+    </div>
   );
 }
 
