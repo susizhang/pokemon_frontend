@@ -38,6 +38,7 @@ function AllPokemon({ pokemons, randomIndex }) {
               );
             })
           : randomIndex.map((item, index) => {
+              const pokemon = pokemons[item];
               return (
                 <div
                   className={`box-border max-w-5xl shadow-md ${
@@ -54,6 +55,11 @@ function AllPokemon({ pokemons, randomIndex }) {
                       />
                     </div>
                   </li>
+                  <div>
+                    <a className="text-2xl" href={`/${pokemon.id}`}>
+                      {pokemon.name.english}
+                    </a>
+                  </div>
                 </div>
               );
             })}
