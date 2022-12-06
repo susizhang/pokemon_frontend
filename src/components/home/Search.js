@@ -22,7 +22,7 @@ function Search({ pokemons }) {
           </p>
         </div>
         <div className="col-span-2 flex">
-          <button className="box-border px-5 py-3 text-white rounded-xl bg-indigo-500 hover:bg-indigo-700 text-xl flex items-center gap-2">
+          <button className="box-border px-5 py-3 text-white rounded-xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-xl flex items-center gap-2">
             <BiRocket />
             Surprise me !
           </button>
