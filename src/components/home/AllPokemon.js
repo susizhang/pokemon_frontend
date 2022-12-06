@@ -5,7 +5,7 @@ function AllPokemon({ pokemons }) {
         {pokemons.map((pokemon) => {
           return (
             <div
-              className=" box-border max-w-5xl shadow-md dark:bg-slate-600 bg-slate-200 flex flex-col items-center justify-center	 "
+              className=" box-border max-w-5xl shadow-md dark:bg-slate-600 bg-slate-200 flex flex-col items-center justify-center	border-2  rounded-3xl"
               key={pokemon.id}
             >
               <li className="flex flex-col items-center  ">
