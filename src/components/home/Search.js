@@ -1,11 +1,11 @@
-import { BiSearchAlt2, BiRocket } from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi";
 
 function Search({ pokemons }) {
   return (
     <>
       <div className="grid grid-cols-8 gap-5 flex flex-col items-center justify-center ">
         <h1 className="col-span-2 text-5xl text-white font-bold ">Pokéfight</h1>
-        <div className="col-span-4">
+        <div className="col-span-6">
           <form action="">
             <input
               className="border border-zinc-800"
@@ -20,12 +20,6 @@ function Search({ pokemons }) {
           <p className="text-slate-400 ">
             Search for a Pokémon by name or using its National Pokédex number
           </p>
-        </div>
-        <div className="col-span-2 flex">
-          <button className="box-border px-5 py-3 text-white rounded-xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-xl flex items-center gap-2">
-            <BiRocket />
-            Surprise me !
-          </button>
         </div>
       </div>
     </>
