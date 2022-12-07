@@ -24,33 +24,34 @@ function Detail() {
   const baseToArr = _.toPairs(base);
 
   return (
-    <>
-      <div
-        className="box-border max-w-5xl dark:bg-red-200 dark:border-red-500/100 bg-gray-200  flex flex-col items-center justify-center	border-4 rounded-3xl "
-        key={id}
-      >
+    <div className="flex justify-center">
+      <div className="box-border max-w-5xl dark:bg-red-200 dark:border-red-500/100 bg-gray-200  flex flex-col items-center justify-center	border-4 rounded-3xl  px-60 py-20">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
           alt={pokemon.name.english}
         />
-        <h1 className="dark:text-white">{name.english}</h1>
+        <h1 className="text-red-600 text-5xl pokeName mb-10 ">
+          {name.english}
+        </h1>
         {type.map((item, index) => (
           <div key={index}>
-            <p className="dark:text-slate-400">{item}</p>
+            <p className="text-black">{item}</p>
           </div>
         ))}
         <div>
           {baseToArr.map((item, index) => (
-            <p className="dark:text-slate-400" key={index}>
+            <p className="text-black" key={index}>
               {item.join(" : ")}
             </p>
           ))}
         </div>
-        <button className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl">
-          <Link to={`/${pokemon.id}/battle`}> Choose it to battle </Link>
+        <button className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl px-6 py-4">
+          <Link className="text-xl" to={`/${pokemon.id}/battle`}>
+            Choose it to battle{" "}
+          </Link>
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

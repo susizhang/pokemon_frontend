@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-function AllPokemon({ pokemons, randomIndex }) {
+function AllPokemon({ pokemons, randomIndex, filteredPokemons }) {
   // console.log(" ", randomIndex);
   const backgroundClassNames = [
     "dark:bg-red-200 dark:border-red-500/100 bg-gray-200 ",
@@ -12,26 +12,72 @@ function AllPokemon({ pokemons, randomIndex }) {
     <>
       <ul className="grid grid-cols-4 gap-8  ul-main ">
         {!randomIndex.length
-          ? pokemons.map((pokemon, index) => {
+          ? pokemons
+              .filter((p) => filteredPokemons.includes(p.id))
+              .map((pokemon, index) => {
+                return (
+                  <div
+                    className={` box-border max-w-5xl shadow-md ${
+                      backgroundClassNames[Math.floor(index / 4) % 5]
+                    }  flex flex-col items-center justify-center	border-4 rounded-3xl `}
+                    key={pokemon.id}
+                  >
+                    <li className="flex flex-col items-center   ">
+                      <div>
+                        <img
+                          className="battle-img"
+                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+                          width="200px"
+                          alt={pokemon.name.english}
+                        />
+                      </div>
+
+                      <div className="text-2xl pokeName mt-4 text-black">
+                        {pokemon.name.english}
+                      </div>
+                      <div className="flex gap-6 mb-6">
+                        <button
+                          className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
+                    "
+                        >
+                          <Link to={`/${pokemon.id}`}> Check detail</Link>
+                        </button>
+                        <button
+                          className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
+                    "
+                        >
+                          <Link to={`/${pokemon.id}/battle`}>
+                            Choose it to battle
+                          </Link>
+                        </button>
+                      </div>
+                    </li>
+                  </div>
+                );
+              })
+          : randomIndex.map((item, index) => {
+              const pokemon = pokemons[item];
               return (
                 <div
-                  className={` box-border max-w-5xl shadow-md ${
+                  className={`box-border max-w-5xl shadow-md ${
                     backgroundClassNames[Math.floor(index / 4) % 5]
                   }  flex flex-col items-center justify-center	border-4 rounded-3xl `}
-                  key={pokemon.id}
+                  key={index}
                 >
-                  <li className="flex flex-col items-center   ">
+                  <li className="flex flex-col items-center  ">
                     <div>
                       <img
-                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+                        className="battle-img"
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${item}.svg`}
                         width="200px"
-                        alt={pokemon.name.english}
+                        alt="pokemon"
                       />
                     </div>
-
-                    <div className="text-2xl pokeName mt-4">
-                      {pokemon.name.english}
-                    </div>
+                  </li>
+                  <div className="text-2xl pokeName mt-4 text-black">
+                    {pokemon.name.english}
+                  </div>
+                  <div className="flex gap-6 mb-6">
                     <button
                       className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
                     "
@@ -46,45 +92,7 @@ function AllPokemon({ pokemons, randomIndex }) {
                         Choose it to battle
                       </Link>
                     </button>
-                  </li>
-                </div>
-              );
-            })
-          : randomIndex.map((item, index) => {
-              const pokemon = pokemons[item];
-              return (
-                <div
-                  className={`box-border max-w-5xl shadow-md ${
-                    backgroundClassNames[Math.floor(index / 4) % 5]
-                  }  flex flex-col items-center justify-center	border-4 rounded-3xl `}
-                  key={index}
-                >
-                  <li className="flex flex-col items-center  ">
-                    <div>
-                      <img
-                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${item}.svg`}
-                        width="200px"
-                        alt="pokemon"
-                      />
-                    </div>
-                  </li>
-                  <div className="text-2xl pokeName mt-4">
-                    {pokemon.name.english}
                   </div>
-                  <button
-                    className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
-                    "
-                  >
-                    <Link to={`/${pokemon.id}`}> Check detail</Link>
-                  </button>
-                  <button
-                    className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
-                    "
-                  >
-                    <Link to={`/${pokemon.id}/battle`}>
-                      Choose it to battle
-                    </Link>
-                  </button>
                 </div>
               );
             })}

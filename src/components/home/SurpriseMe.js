@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BiRocket } from "react-icons/bi";
 import AllPokemon from "./AllPokemon";
 
-function SurpriseMe({ pokemons }) {
+function SurpriseMe({ pokemons, filteredPokemons }) {
   const [randomIndex, setRandomIndex] = useState([]);
 
   const randomIdHandler = () => {
@@ -27,7 +27,11 @@ function SurpriseMe({ pokemons }) {
         </button>
       </div>
 
-      <AllPokemon pokemons={pokemons} randomIndex={randomIndex} />
+      <AllPokemon
+        pokemons={pokemons}
+        filteredPokemons={filteredPokemons}
+        randomIndex={randomIndex}
+      />
     </div>
   );
 }

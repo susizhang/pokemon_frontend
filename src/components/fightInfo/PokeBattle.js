@@ -37,16 +37,32 @@ const PokeBattle = () => {
   const { name, base } = pokemon;
 
   const battleHandler = () => {
-    if (base.Attack > Math.floor(Math.random() * randomPokemon.base.HP)) {
+    if (
+      base.Attack > Math.floor(Math.random() * (randomPokemon.base.HP + 30))
+    ) {
       setStartButtonStatus(true);
       setTimeout(() => {
         setResult("Congratulation, you win!");
+        axios.post(`${baseUrl}/game/save`, {
+          winner: name.english,
+          loser: randomPokemon.name.english,
+        });
       }, 2100);
 
       //   setFlag(true);
     } else {
+      setStartButtonStatus(true);
       setTimeout(() => {
-        setResult("Sorry,Computer wins!");
+        setResult("Sorry, Computer wins!");
+        axios.post(`${baseUrl}/game/save`, {
+          winner: randomPokemon.name.english,
+          loser: name.english,
+        });
+        // axios.put(`${baseUrl}/game/${id}`, {
+        //   winner: randomPokemon.name.english,
+        //   loser: name.english,
+        // });
+        // axios.delete(`${baseUrl}/game/${id}`);
       }, 2100);
     }
   };
@@ -72,10 +88,12 @@ const PokeBattle = () => {
             />
           </div>
 
-          <h1 className="dark:text-black text-3xl pb-8">{name.english}</h1>
+          <h1 className="text-red-600 text-5xl pb-8 pokeName">
+            {name.english}
+          </h1>
         </div>
         <div
-          className="col-span-2 box-border max-w-5xl dark:bg-blue-200 dark:border-blue-500/100 bg-gray-200  flex flex-col items-center justify-center	border-4 rounded-3xl "
+          className="col-span-2 box-border max-w-5xl dark:bg-indigo-500 dark:border-cyan-500/100 bg-gray-200  flex flex-col items-center justify-center	border-4 rounded-3xl "
           key={randomId}
         >
           <div className="box-border py-8">
@@ -86,7 +104,7 @@ const PokeBattle = () => {
             />
           </div>
 
-          <h1 className="dark:text-black text-3xl pb-8">
+          <h1 className="text-yellow-300 text-5xl pb-8 pokeName">
             {randomPokemon.name.english}
           </h1>
         </div>
@@ -109,22 +127,26 @@ const PokeBattle = () => {
         </button>
       </div>
       {startButtonStatus && (
-        <ProgressBar
-          width="400px"
-          height="10px"
-          rect
-          fontColor="gray"
-          percentage="100"
-          rectPadding="1px"
-          rectBorderRadius="20px"
-          trackPathColor="transparent"
-          bgColor="#333333"
-          trackBorderColor="grey"
-        />
+        <div className="flex justify-center mt-12">
+          <ProgressBar
+            width="400px"
+            height="10px"
+            rect
+            fontColor="gray"
+            percentage="100"
+            rectPadding="1px"
+            rectBorderRadius="20px"
+            trackPathColor="transparent"
+            bgColor="#333333"
+            trackBorderColor="grey"
+          />
+        </div>
       )}
 
-      <div className="flex justify-center mt-20">
-        <h1 className="text-3xl dark:text-white">{result}</h1>
+      <div className="flex justify-center mt-8">
+        <h1 className="text-7xl dark:text-yellow-300 font-semibold ">
+          {result}
+        </h1>
       </div>
     </>
   );

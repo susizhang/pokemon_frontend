@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import logo from "../../img/logo 2.png";
 
-function Search() {
+function Search({ handleFilter }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <>
       <div className="grid grid-cols-8 gap-10 flex flex-col items-center justify-center ">
@@ -16,8 +19,17 @@ function Search() {
               className="placeholder:italic placeholder:text-slate-400 block bg-white w-full  border-slate-300 rounded-tl-lg rounded-bl-lg py-2 pl-5 pr-3 h-12  shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm "
               type="text"
               placeholder="Write a name or number to search a pokemon"
+              value={searchTerm}
+              onChange={(x) => setSearchTerm(x.target.value)}
             />
-            <button className="text-white border rounded-tr-lg  pl-3 w-12 h-12 rounded-br-lg bg-orange-500 hover:bg-orange-700 border-orange-300  text-xl">
+            <button
+              className="text-white border rounded-tr-lg  pl-3 w-12 h-12 rounded-br-lg bg-orange-500 hover:bg-orange-700 border-orange-300  text-xl"
+              onClick={(e) => {
+                // console.log(searchTerm);
+                handleFilter(searchTerm);
+                e.preventDefault();
+              }}
+            >
               <BiSearchAlt2 />
             </button>
           </form>
