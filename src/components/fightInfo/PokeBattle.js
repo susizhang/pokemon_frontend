@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BiRevision } from "react-icons/bi";
 import { baseUrl } from "../../config";
+import ProgressBar from "react-animated-progress-bar";
 
 const PokeBattle = () => {
   const [randomId, setRandomId] = useState(1);
@@ -9,6 +11,8 @@ const PokeBattle = () => {
   const [pokemon, setPokemon] = useState();
   const [randomPokemon, setRandomPokemon] = useState();
   const [result, setResult] = useState("");
+  const [startButtonStatus, setStartButtonStatus] = useState(false);
+  //   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
     axios.get(`${baseUrl}/pokemon/${id}`).then(({ data }) => {
@@ -34,16 +38,25 @@ const PokeBattle = () => {
 
   const battleHandler = () => {
     if (base.Attack > Math.floor(Math.random() * randomPokemon.base.HP)) {
-      return setResult("Congratulation, you win!");
-    }
+      setStartButtonStatus(true);
+      setTimeout(() => {
+        setResult("Congratulation, you win!");
+      }, 2100);
 
-    return setResult("Sorry,Computer wins!");
+      //   setFlag(true);
+    } else {
+      setTimeout(() => {
+        setResult("Sorry,Computer wins!");
+      }, 2100);
+    }
   };
 
   const tryAgainHandler = () => {
     setRandomId(Math.floor(Math.random() * 649));
-    battleHandler();
+    setStartButtonStatus(false);
+    setResult("");
   };
+
   return (
     <>
       <div className="grid grid-cols-6 gap-20">
@@ -82,17 +95,34 @@ const PokeBattle = () => {
         <button
           className="bg-red-500 py-6 px-12 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6  text-xl rounded-3xl"
           onClick={battleHandler}
+          //   disabled={flag}
         >
           Start Battle
         </button>
 
         <button
-          className="bg-red-500 py-6 px-12 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6  text-xl rounded-3xl"
+          className=" py-6 px-12 text-white p-2 mt-6  text-xl  flex gap-2 items-center"
           onClick={tryAgainHandler}
         >
-          Try again
+          <BiRevision />
+          Change opponent
         </button>
       </div>
+      {startButtonStatus && (
+        <ProgressBar
+          width="400px"
+          height="10px"
+          rect
+          fontColor="gray"
+          percentage="100"
+          rectPadding="1px"
+          rectBorderRadius="20px"
+          trackPathColor="transparent"
+          bgColor="#333333"
+          trackBorderColor="grey"
+        />
+      )}
+
       <div className="flex justify-center mt-20">
         <h1 className="text-3xl dark:text-white">{result}</h1>
       </div>
