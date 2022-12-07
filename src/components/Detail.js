@@ -24,8 +24,11 @@ function Detail() {
   const baseToArr = _.toPairs(base);
 
   return (
-    <>
-      <div key={id}>
+    <div>
+      <div
+        className="box-border max-w-5xl dark:bg-red-200 dark:border-red-500/100 bg-gray-200  flex flex-col items-center justify-center	border-4 rounded-3xl "
+        key={id}
+      >
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
           alt={pokemon.name.english}
@@ -44,7 +47,7 @@ function Detail() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
