@@ -38,6 +38,14 @@ function AllPokemon({ pokemons, randomIndex }) {
                     >
                       <Link to={`/${pokemon.id}`}> Check detail</Link>
                     </button>
+                    <button
+                      className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
+                    "
+                    >
+                      <Link to={`/${pokemon.id}/battle`}>
+                        Choose it to battle
+                      </Link>
+                    </button>
                   </li>
                 </div>
               );
@@ -68,6 +76,14 @@ function AllPokemon({ pokemons, randomIndex }) {
                     "
                   >
                     <Link to={`/${pokemon.id}`}> Check detail</Link>
+                  </button>
+                  <button
+                    className="bg-indigo-500 shadow-lg shadow-indigo-500/40 text-white p-2 mt-6 rounded-xl
+                    "
+                  >
+                    <Link to={`/${pokemon.id}/battle`}>
+                      Choose it to battle
+                    </Link>
                   </button>
                 </div>
               );

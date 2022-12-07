@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { baseUrl } from "./config";
 import axios from "axios";
 import SurpriseMe from "./components/home/SurpriseMe";
+import PokeBattle from "./components/fightInfo/PokeBattle";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -39,6 +40,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SurpriseMe pokemons={pokemons} />} />
           <Route path="/:id" element={<Detail />} />
+          <Route path="/:id/battle" element={<PokeBattle />} />
+
           <Route path="/:id/:info" element={<SuperDetail />} />
           <Route path="/leaderboard" element={<AllGameInfo />} />
         </Routes>
