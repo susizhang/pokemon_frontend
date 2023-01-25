@@ -119,7 +119,7 @@ const PokeBattle = () => {
         </button>
 
         <button
-          className=" py-6 px-12 text-white p-2 mt-6  text-xl  flex gap-2 items-center"
+          className=" py-6 px-12 text-gray dark:text-white p-2 mt-6  text-xl flex gap-2 items-center"
           onClick={tryAgainHandler}
         >
           <BiRevision />
