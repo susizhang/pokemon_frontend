@@ -19,3 +19,8 @@
 .battle-img {
   height: 260px;
 }
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+}

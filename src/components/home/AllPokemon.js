@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 function AllPokemon({ pokemons, randomIndex, filteredPokemons }) {
-  // console.log(" ", randomIndex);
   const backgroundClassNames = [
     "dark:bg-red-200 dark:border-red-500/100 bg-gray-200 ",
     "dark:bg-orange-200 dark:border-orange-500/100 bg-gray-200",
@@ -8,7 +7,7 @@ function AllPokemon({ pokemons, randomIndex, filteredPokemons }) {
     "dark:bg-yellow-200 dark:border-yellow-500/100 bg-gray-200",
     "dark:bg-green-200 dark:border-green-500/100 bg-gray-200",
   ];
-  if (!pokemons) return "Loading";
+
   return (
     <>
       <ul className="grid grid-cols-4 gap-8  ul-main ">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiRocket } from "react-icons/bi";
 import AllPokemon from "./AllPokemon";
+import { BallTriangle } from "react-loader-spinner";
 
 function SurpriseMe({ pokemons, filteredPokemons }) {
   const [randomIndex, setRandomIndex] = useState([]);
@@ -15,6 +16,20 @@ function SurpriseMe({ pokemons, filteredPokemons }) {
     setRandomIndex(arr);
   };
   //   console.log(" ", randomIndex);
+  if (!pokemons.length)
+    return (
+      <BallTriangle
+        height={100}
+        width={100}
+        radius={5}
+        color="#4fa94d"
+        ariaLabel="ball-triangle-loading"
+        wrapperClass="loading-spinner"
+        wrapperStyle=""
+        visible={true}
+      />
+    );
+
   return (
     <div>
       <div className="flex flex-col items-center ">
