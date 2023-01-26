@@ -8,6 +8,7 @@ function AllPokemon({ pokemons, randomIndex, filteredPokemons }) {
     "dark:bg-yellow-200 dark:border-yellow-500/100 bg-gray-200",
     "dark:bg-green-200 dark:border-green-500/100 bg-gray-200",
   ];
+  if (!pokemons) return "Loading";
   return (
     <>
       <ul className="grid grid-cols-4 gap-8  ul-main ">
